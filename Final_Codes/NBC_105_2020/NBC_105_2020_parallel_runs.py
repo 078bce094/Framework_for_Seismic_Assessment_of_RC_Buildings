@@ -264,7 +264,7 @@ def MomentCurvature3D(secTag, axialLoad, DimBA, Cover, mu, numIncr, bendingAxis,
 
 def compute_PSA(accel, dt, T1, damping=0.05):
     omega_n = 2 * np.pi / T1  # Natural frequency (rad/s)
-    m = 1.0  # Mass (normalized to 1 for PSA calculation)
+    m = 1.0  #  (normalized to 1 for PSA calculation)
 
     # Newmark parameters (average acceleration method)
     beta = 0.25
@@ -664,9 +664,9 @@ def run_analysis(u, CarlSagan):
                 startNode = startX * 100 + startY * 10 + startZ
                 endNode = endX * 100 + endY * 10 + endZ
                 if planeZ == 2 or planeZ == 3:   # storey I, II
-                    ops.element('forceBeamColumn', XBeamTag, startNode, endNode, Beam_X_TransfTag, Beam_1_IntTag, '-mass', Beam_mpul)
+                    ops.element('forceBeamColumn', XBeamTag, startNode, endNode, Beam_X_TransfTag, Beam_1_IntTag, '-', Beam_mpul)
                 else: # storey III, IV
-                    ops.element('forceBeamColumn', XBeamTag, startNode, endNode, Beam_X_TransfTag, Beam_2_IntTag, '-mass', Beam_mpul)
+                    ops.element('forceBeamColumn', XBeamTag, startNode, endNode, Beam_X_TransfTag, Beam_2_IntTag, '-', Beam_mpul)
                 X_Beam_Tags.append(XBeamTag)
 
     # Y_Beam elements 
@@ -685,9 +685,9 @@ def run_analysis(u, CarlSagan):
                 startNode = startX * 100 + startY * 10 + startZ
                 endNode = endX * 100 + endY * 10 + endZ
                 if planeZ == 2 or planeZ == 3:     # storey I, II
-                    ops.element('forceBeamColumn', YBeamTag, startNode, endNode, Beam_Y_TransfTag, Beam_1_IntTag, '-mass', Beam_mpul)
+                    ops.element('forceBeamColumn', YBeamTag, startNode, endNode, Beam_Y_TransfTag, Beam_1_IntTag, '-', Beam_mpul)
                 else:   # storey III, IV
-                    ops.element('forceBeamColumn', YBeamTag, startNode, endNode, Beam_Y_TransfTag, Beam_2_IntTag, '-mass', Beam_mpul)
+                    ops.element('forceBeamColumn', YBeamTag, startNode, endNode, Beam_Y_TransfTag, Beam_2_IntTag, '-', Beam_mpul)
                 Y_Beam_Tags.append(YBeamTag)
 
     Beam_tags = X_Beam_Tags + Y_Beam_Tags
@@ -716,12 +716,12 @@ def run_analysis(u, CarlSagan):
                 columns_by_floor[k].append(ColTag)
 
                 if planeZ in (1, 2, 3): 
-                    ops.element('forceBeamColumn', ColTag, startNode, endNode, Col_TransfTag, Col_1_IntTag, 'mass', Col_mpul)
+                    ops.element('forceBeamColumn', ColTag, startNode, endNode, Col_TransfTag, Col_1_IntTag, '-mass', Col_mpul)
                     Column_1_Tags.append(ColTag) 
                     if planeZ == 1:
                         ground_floor_col_tags.append(ColTag)
                 else:
-                    ops.element('forceBeamColumn', ColTag, startNode, endNode, Col_TransfTag, Col_2_IntTag, 'mass', Col_mpul)
+                    ops.element('forceBeamColumn', ColTag, startNode, endNode, Col_TransfTag, Col_2_IntTag, '-mass', Col_mpul)
                     Column_2_Tags.append(ColTag) 
 
     Column_Tags = Column_1_Tags + Column_2_Tags
