@@ -749,10 +749,10 @@ def run_analysis(u, CarlSagan):
                 if planeZ == 1:
                     ground_floor_col_tags.append(ColTag)
                 if planeZ == 1 or planeZ == 2:
-                    ops.element('forceBeamColumn', ColTag, startNode, endNode, Col_TransfTag, Col_1_IntTag, 'mass', Col_1_mpul)
+                    ops.element('forceBeamColumn', ColTag, startNode, endNode, Col_TransfTag, Col_1_IntTag, '-mass', Col_1_mpul)
                     Column_1_Tags.append(ColTag)
                 else:
-                    ops.element('forceBeamColumn', ColTag, startNode, endNode, Col_TransfTag, Col_2_IntTag, 'mass', Col_2_mpul)
+                    ops.element('forceBeamColumn', ColTag, startNode, endNode, Col_TransfTag, Col_2_IntTag, '-mass', Col_2_mpul)
                     Column_2_Tags.append(ColTag)
 
     Column_Tags = Column_1_Tags + Column_2_Tags
