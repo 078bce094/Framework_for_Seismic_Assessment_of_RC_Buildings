@@ -326,7 +326,7 @@ def MomentCurvature3D(secTag, axialLoad, DimBA, Cover, mu, numIncr, bendingAxis,
 
 def compute_PSA(accel, dt, T1, damping=0.05):
     omega_n = 2 * np.pi / T1  # Natural frequency (rad/s)
-    m = 1.0  # Mass (normalized to 1 for PSA calculation)
+    m = 1.0  #  (normalized to 1 for PSA calculation)
 
     # Newmark parameters (average acceleration method)
     beta = 0.25
@@ -926,11 +926,11 @@ def run_analysis(u, CarlSagan):
                 startNode = startX * 100 + startY * 10 + startZ
                 endNode = endX * 100 + endY * 10 + endZ
                 if planeZ == 2:   # storey I
-                    ops.element('forceBeamColumn', XBeamTag, startNode, endNode, Beam_X_TransfTag, Beam_1_IntTag, '-mass', Beam_mpul)
+                    ops.element('forceBeamColumn', XBeamTag, startNode, endNode, Beam_X_TransfTag, Beam_1_IntTag, '-', Beam_mpul)
                 elif planeZ == 3: # storey II
-                    ops.element('forceBeamColumn', XBeamTag, startNode, endNode, Beam_X_TransfTag, Beam_2_IntTag, '-mass', Beam_mpul)
+                    ops.element('forceBeamColumn', XBeamTag, startNode, endNode, Beam_X_TransfTag, Beam_2_IntTag, '-', Beam_mpul)
                 else: # storey III
-                    ops.element('forceBeamColumn', XBeamTag, startNode, endNode, Beam_X_TransfTag, Beam_3_IntTag, '-mass', Beam_mpul)
+                    ops.element('forceBeamColumn', XBeamTag, startNode, endNode, Beam_X_TransfTag, Beam_3_IntTag, '-', Beam_mpul)
                 X_Beam_Tags.append(XBeamTag)
 
     # Y_Beam elements 
@@ -949,11 +949,11 @@ def run_analysis(u, CarlSagan):
                 startNode = startX * 100 + startY * 10 + startZ
                 endNode = endX * 100 + endY * 10 + endZ
                 if planeZ == 2:     # storey I
-                    ops.element('forceBeamColumn', YBeamTag, startNode, endNode, Beam_Y_TransfTag, Beam_4_IntTag, '-mass', Beam_mpul)
+                    ops.element('forceBeamColumn', YBeamTag, startNode, endNode, Beam_Y_TransfTag, Beam_4_IntTag, '-', Beam_mpul)
                 elif planeZ == 3:   # storey II
-                    ops.element('forceBeamColumn', YBeamTag, startNode, endNode, Beam_Y_TransfTag, Beam_5_IntTag, '-mass', Beam_mpul)
+                    ops.element('forceBeamColumn', YBeamTag, startNode, endNode, Beam_Y_TransfTag, Beam_5_IntTag, '-', Beam_mpul)
                 else:
-                    ops.element('forceBeamColumn', YBeamTag, startNode, endNode, Beam_Y_TransfTag, Beam_6_IntTag, '-mass', Beam_mpul)
+                    ops.element('forceBeamColumn', YBeamTag, startNode, endNode, Beam_Y_TransfTag, Beam_6_IntTag, '-', Beam_mpul)
                 Y_Beam_Tags.append(YBeamTag)
 
     Beam_tags = X_Beam_Tags + Y_Beam_Tags
@@ -983,34 +983,34 @@ def run_analysis(u, CarlSagan):
 
                 if planeZ == 1:
                     if planeX in (1, NplaneX) and planeY in (1, NplaneY):   # corner
-                        ops.element('forceBeamColumn', ColTag, startNode, endNode, Col_TransfTag, Col_1_IntTag, 'mass', Col_1_mpul)
+                        ops.element('forceBeamColumn', ColTag, startNode, endNode, Col_TransfTag, Col_1_IntTag, '-mass', Col_1_mpul)
                         Column_1_Tags.append(ColTag)
                     elif planeX not in (1, NplaneX) and planeY not in (1, NplaneY):  # interior
-                        ops.element('forceBeamColumn', ColTag, startNode, endNode, Col_TransfTag, Col_3_IntTag, 'mass', Col_3_mpul)
+                        ops.element('forceBeamColumn', ColTag, startNode, endNode, Col_TransfTag, Col_3_IntTag, '-mass', Col_3_mpul)
                         Column_3_Tags.append(ColTag)
                     else:   # face
-                        ops.element('forceBeamColumn', ColTag, startNode, endNode, Col_TransfTag, Col_1_IntTag, 'mass', Col_1_mpul)
+                        ops.element('forceBeamColumn', ColTag, startNode, endNode, Col_TransfTag, Col_1_IntTag, '-mass', Col_1_mpul)
                         Column_1_Tags.append(ColTag)
                     ground_floor_col_tags.append(ColTag)
                 elif planeZ == 2:
                     if planeX in (1, NplaneX) and planeY in (1, NplaneY):   # corner
-                        ops.element('forceBeamColumn', ColTag, startNode, endNode, Col_TransfTag, Col_1_IntTag, 'mass', Col_1_mpul)
+                        ops.element('forceBeamColumn', ColTag, startNode, endNode, Col_TransfTag, Col_1_IntTag, '-mass', Col_1_mpul)
                         Column_1_Tags.append(ColTag)
                     elif planeX not in (1, NplaneX) and planeY not in (1, NplaneY):  # interior
-                        ops.element('forceBeamColumn', ColTag, startNode, endNode, Col_TransfTag, Col_3_IntTag, 'mass', Col_3_mpul)
+                        ops.element('forceBeamColumn', ColTag, startNode, endNode, Col_TransfTag, Col_3_IntTag, '-mass', Col_3_mpul)
                         Column_3_Tags.append(ColTag)
                     else:   # face
-                        ops.element('forceBeamColumn', ColTag, startNode, endNode, Col_TransfTag, Col_1_IntTag, 'mass', Col_1_mpul)
+                        ops.element('forceBeamColumn', ColTag, startNode, endNode, Col_TransfTag, Col_1_IntTag, '-mass', Col_1_mpul)
                         Column_1_Tags.append(ColTag)
                 else:
                     if planeX in (1, NplaneX) and planeY in (1, NplaneY):   # corner
-                        ops.element('forceBeamColumn', ColTag, startNode, endNode, Col_TransfTag, Col_1_IntTag, 'mass', Col_1_mpul)
+                        ops.element('forceBeamColumn', ColTag, startNode, endNode, Col_TransfTag, Col_1_IntTag, '-mass', Col_1_mpul)
                         Column_1_Tags.append(ColTag)
                     elif planeX not in (1, NplaneX) and planeY not in (1, NplaneY):  # interior
-                        ops.element('forceBeamColumn', ColTag, startNode, endNode, Col_TransfTag, Col_2_IntTag, 'mass', Col_2_mpul)
+                        ops.element('forceBeamColumn', ColTag, startNode, endNode, Col_TransfTag, Col_2_IntTag, '-mass', Col_2_mpul)
                         Column_2_Tags.append(ColTag)
                     else:   # face
-                        ops.element('forceBeamColumn', ColTag, startNode, endNode, Col_TransfTag, Col_2_IntTag, 'mass', Col_2_mpul)
+                        ops.element('forceBeamColumn', ColTag, startNode, endNode, Col_TransfTag, Col_2_IntTag, '-mass', Col_2_mpul)
                         Column_2_Tags.append(ColTag)
 
     Column_Tags = Column_1_Tags + Column_2_Tags + Column_3_Tags
