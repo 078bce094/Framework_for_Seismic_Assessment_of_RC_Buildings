@@ -975,7 +975,7 @@ def run_analysis(u, CarlSagan):
     ops.test('NormDispIncr', 1e-5, 1000)
     # ops.test('EnergyIncr', 5.0e-4,  100 )
     ops.algorithm('Newton')
-    ops.integrator('LoadControl', 0.001)
+    ops.integrator('LoadControl', 1.0)
     ops.analysis('Static')
 
     ops.analyze(1)
