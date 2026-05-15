@@ -902,7 +902,7 @@ def run_analysis(u, CarlSagan):
     ops.system('BandGen')
     ops.test('NormDispIncr', 1e-8, 10)
     ops.algorithm('Newton')
-    ops.integrator('LoadControl', 0.001)
+    ops.integrator('LoadControl', 1.0)
     ops.analysis('Static')
 
     ops.analyze(1)
