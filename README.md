@@ -26,4 +26,5 @@ This research paper has been submitted to ***Advances in Structural Engineering*
 ## Contact & Collaboration
 * **Primary Researcher:** Niraj Kumar Yadav (078bce094.niraj@pcampus.edu.np)
 * **Supervisor:** Dr. Kshitiz C. Shrestha
+
 Contact via email for the developed dataset, and/or collaboration on future work of this project.
