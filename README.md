@@ -3,7 +3,7 @@
 ## Overview
 This repository contains the data pipeline, finite element simulation architecture, and machine learning models for the first large-scale, data-driven seismic vulnerability framework developed for Nepal's building stock. By integrating automated nonlinear structural simulations with advanced gradient boosting and deep learning algorithms, this framework enables real-time regional damage assessment and post-earthquake decision-making.
 
-This research paper has been submitted to ***Advances in Structural Engineering*** (Manuscript ID: ASE-26-0085).
+This research paper has been selected for publication in ***Advances in Structural Engineering***.
 
 ## Methodology & Framework Pipeline
 1. **Automated FE Modeling:** Programmed an OpenSeesPy pipeline to model **1,900+ RC buildings** representing diverse Nepalese construction paradigms (Non-engineered, NBC 205:1994, NBC 205:2012, NBC 105:2020, and NBC 205:2024).
@@ -27,4 +27,4 @@ This research paper has been submitted to ***Advances in Structural Engineering*
 * **Primary Researcher:** Niraj Kumar Yadav (078bce094.niraj@pcampus.edu.np)
 * **Supervisor:** Dr. Kshitiz C. Shrestha
 
-Contact via email for the developed dataset, and/or collaboration on future work of this project.
+Contact via email for collaboration on future work of this project.
