@@ -1,7 +1,7 @@
 # Machine Learning-Based Framework for Real-Time Seismic Damage Assessment of RC Buildings
 
 ## Overview
-This repository contains the data pipeline, finite element simulation architecture, and machine learning models for the first large-scale, data-driven seismic vulnerability framework developed for Nepal's building stock. By integrating automated nonlinear structural simulations with advanced gradient boosting and deep learning algorithms, this framework enables real-time regional damage assessment and post-earthquake decision-making.
+This repository contains the data pipeline, finite element simulation architecture, and machine learning models data-driven seismic vulnerability framework developed for Nepal's building stock. By integrating automated nonlinear structural simulations with machine learning algorithms, this framework enables rapid regional damage assessment and post-earthquake decision-making.
 
 This research paper has been selected for publication in ***Advances in Structural Engineering***.
 
